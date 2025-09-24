@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Мини проект</title>
+</head>
+<body>
+  <h1>Мини-проект: фронт + бэк</h1>
+  
+  <input id="name" placeholder="Введите имя" />
+  <button onclick="sendName()">Сохранить</button>
+
+  <h2>Список имён:</h2>
+  <ul id="list"></ul>
+
+  <script>
+    const API_URL = "https://your-backend.onrender.com"; // Заменить на адрес Node.js
+
+    async function sendName() {
+      const name = document.getElementById("name").value;
+      await fetch(`${API_URL}/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name })
+      });
+      loadNames();
+    }
+
+    async function loadNames() {
+      const res = await fetch(`${API_URL}/list`);
+      const data = await res.json();
+      const ul = document.getElementById("list");
+      ul.innerHTML = "";
+      data.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item.name;
+        ul.appendChild(li);
+      });
+    }
+
+    loadNames();
+  </script>
+</body>
+</html>
