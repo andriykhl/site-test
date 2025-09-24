@@ -2,19 +2,19 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Мини проект</title>
+  <title>Test</title>
 </head>
 <body>
-  <h1>Мини-проект: фронт + бэк</h1>
+  <h1>Front+back+db</h1>
   
-  <input id="name" placeholder="Введите имя" />
-  <button onclick="sendName()">Сохранить</button>
+  <input id="name" placeholder="Enter name" />
+  <button onclick="sendName()">Save</button>
 
-  <h2>Список имён:</h2>
+  <h2>List of names:</h2>
   <ul id="list"></ul>
 
   <script>
-    const API_URL = "https://site-test-7qu4.onrender.com"; // Заменить на адрес Node.js
+    const API_URL = "https://site-test-7qu4.onrender.com"; 
 
     async function sendName() {
       const name = document.getElementById("name").value;
