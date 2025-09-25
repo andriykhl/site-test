@@ -5,13 +5,18 @@
   <title>Test</title>
 </head>
 <body>
-  <h1>Front+back+db</h1>
+  <h1>Front + back + db</h1>
   
   <input id="name" placeholder="Enter name" />
   <button onclick="sendName()">Save</button>
 
   <h2>List of names:</h2>
-  <ul id="list"></ul>
+  <ul id="list"> 
+    <div>
+      <img src="./backend/Loading_icon.gif" alt="" width="100px">
+      <p>Waiting for a server response...</p>
+    </div>
+  </ul>
 
   <script>
     const API_URL = "https://site-test-7qu4.onrender.com"; 
